@@ -1,5 +1,11 @@
+BOX2D_STATIC_LINKINK = true
+
 project "Box2D"
-	kind "StaticLib"
+	if BOX2D_STATIC_LINKINK then
+		kind "StaticLib"
+	else
+		kind "SharedLib"
+	end
 	language "C++"
 	cppdialect "C++11"
 	staticruntime "off"
@@ -22,6 +28,10 @@ project "Box2D"
 		"src"
 	}
 
+	if not BOX2D_STATIC_LINKINK then
+		defines { "B2_SHARED", "box2d_EXPORTS" }
+	end
+
 	filter "system:windows"
 		systemversion "latest"
 
@@ -37,7 +47,7 @@ project "Box2D"
 		runtime "Release"
 		optimize "on"
 
-    filter "configurations:Dist"
+	filter "configurations:Dist"
 		runtime "Release"
 		optimize "on"
-        symbols "off"
+		symbols "off"
