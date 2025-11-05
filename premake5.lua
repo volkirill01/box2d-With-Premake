@@ -12,8 +12,8 @@ project "Box2D"
 
 	warnings "Off"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/%{outputdir}/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/%{outputdir}/%{prj.name}")
 
 	files
 	{
