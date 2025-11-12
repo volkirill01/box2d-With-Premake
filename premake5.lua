@@ -7,7 +7,7 @@ project "Box2D"
 		kind "SharedLib"
 	end
 	language "C++"
-	cppdialect "C++11"
+	cppdialect "C++20"
 	staticruntime "off"
 
 	warnings "Off"
